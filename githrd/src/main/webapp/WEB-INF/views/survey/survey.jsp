@@ -22,14 +22,21 @@
 </style>
 </head>
 <body>
+	<form method="POST" action="#" id="frm" name="frm">
+		<input type="hidden" name="id" value="${SID}">
+		<input type="hidden" name="sino" value="${DATA.sino}">
+		<input type="hidden" name="title" value="${DATA.title}">
+	</form>
+	
 	<div class="w3-content w3-center mx650">
 		<h1 class="w3-blue w3-padding w3-card-4">설문 조사</h1>
 		
 		<h2 class="w3-col w3-text-indigo w3-margin-bottom w3-margin-top">${DATA.title}</h2>
 		
+		<form name="frm1">
 <c:forEach var="quest" items="${DATA.bogi}" varStatus="st">
 		<div class="w3-col w3-margin-top w3-padding w3-card-4">
-			<h3 class="w3-left-align">${st.count}. ${quest.body}</h3>
+			<h3 class="w3-left-align quest">${st.count}. ${quest.body}</h3>
 			<div class="w3-col" style="padding-left: 50px;">
 	<c:forEach var="answer" items="${quest.bogi}" varStatus="bst">
 				<h4 class="w3-col w3-left-align"><input type="radio" name="${quest.sqno}" id="${answer.sqno}" value="${answer.sqno}"> <label for="${answer.sqno}"> ${bst.count}. ${answer.body}</label></h4>
@@ -37,11 +44,12 @@
 			</div>
 		</div>
 </c:forEach>
+		</form>
 
 		<div class="w3-col w3-margin-top w3-card-4">
-			<div class="w3-third w3-green w3-button">list</div>
-			<div class="w3-third w3-blue w3-button">reset</div>
-			<div class="w3-third w3-orange w3-button">submit</div>
+			<div class="w3-third w3-green w3-button" id="lbtn">list</div>
+			<div class="w3-third w3-blue w3-button" id="rbtn">reset</div>
+			<div class="w3-third w3-orange w3-button" id="sbtn">submit</div>
 		</div>
 	</div>
 </body>

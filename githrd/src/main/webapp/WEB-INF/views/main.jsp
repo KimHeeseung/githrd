@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Jennie Project Main</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/www/img/favicon/favicon-32x32.png">
 <link rel="stylesheet" type="text/css" href="/www/css/w3.css">
 <link rel="stylesheet" type="text/css" href="/www/css/base.css">
 <script type="text/javascript" src="/www/js/jquery-3.6.0.min.js"></script>
@@ -60,7 +61,7 @@
 </c:if>
 <c:if test="${not empty SID and SCOUNT ne 0}">
 				<div class="w3-col">
-					<p class="w3-right-align"><small>* 현재 진행중인 설문중 참여하지 않은 설문이 [ <span class="w3-text-blue">${SCOUNT}</span> ]개 있습니다.<small></small></p>
+					<p class="w3-right-align"><small>* 현재 진행중인 설문중 참여하지 않은 설문이 [ <span class="w3-text-blue">${SCOUNT}</span> ]개 있습니다.</small></p>
 				</div>
 </c:if>
 
@@ -83,6 +84,10 @@
 						<div class="w3-col m3 pdh10">
 							<h5 class="w3-col w3-button w3-orange w3-hover-light-green" id="fbtn">파일게시판</h5>
 						</div>
+
+						<div class="w3-col m3 pdh10">
+							<h5 class="w3-col w3-button w3-yellow w3-hover-lime" id="emp">사원페이지</h5>
+						</div>
 					</div>
 				</div>
 		</div>
@@ -101,5 +106,19 @@
 	    </div>
  	</div>
 </c:if>
+<c:if test="${(not empty SID) and (MSG_CHECK eq 'OK')}">
+	<div id="msgWin" class="w3-modal">
+	    <div class="w3-modal-content w3-animate-top w3-card-4">
+			<header class="w3-container w3-blue"> 
+		        <span class="w3-button w3-display-topright" id="msgClose">&times;</span>
+		        <h2>알림 메세지</h2>
+			</header>
+	    	<div class="w3-container">
+	        	<h3 class="w3-center w3-margin-top w3-margin-bottom" id="msg">${SID} 님 로그인 하셨습니다.</h3>
+	    	</div>
+	    </div>
+ 	</div>
+</c:if>
+
 </body>
 </html>
